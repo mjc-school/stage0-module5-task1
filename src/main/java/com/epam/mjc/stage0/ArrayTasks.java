@@ -1,6 +1,5 @@
 package com.epam.mjc.stage0;
 
-import java.util.Arrays;
 
 /**
  * Here are the tasks for working with the arrays.
@@ -29,7 +28,7 @@ public class ArrayTasks {
     public int[] generateNumbers(int length) {
         int[] arr = new int[length];
         for (int i = 0; i < length; i++) {
-            arr[i] = i;
+            arr[i] = i + 1;
         }
 
         return arr;
@@ -65,7 +64,7 @@ public class ArrayTasks {
             if (arr[i] == number)
                 return i;
         }
-        return 0;
+        return -1;
     }
 
     /**
@@ -128,17 +127,21 @@ public class ArrayTasks {
      * arr = [[5, 4], [7]]       -> [[7], [4, 5]]
      */
     public int[][] sortRaggedArray(int[][] arr) {
-        for (int i = 0; i < arr.length / 2; i++) {
-            int[] temp = arr[i];
-            arr[i] = arr[arr.length - 1 - i];
-            arr[arr.length - 1 - i] = temp;
+        for (int i = 0; i < arr.length -1; i++) {
+            for(int j = 0; j < arr.length - 1 - i; j++){
+                if(arr[j].length > arr[j+1].length){
+                    int[] temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
         }
 
         for(int i = 0; i < arr.length; i++){
-            for(int j = 0; j < arr[i].length; j++){
+            for(int j = 0; j < arr[i].length/2; j++){
                 int temp = arr[i][j];
-                arr[i][j] = arr[arr.length - 1 - i][arr[i].length - 1 - j];
-                arr[arr.length - 1 - i][arr[i].length - 1 - j] = temp;
+                arr[i][j] = arr[i][arr[i].length - 1 - j];
+                arr[i][arr[i].length - 1 - j] = temp;
             }
         }
 
