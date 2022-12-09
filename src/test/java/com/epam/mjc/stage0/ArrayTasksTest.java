@@ -55,7 +55,7 @@ public class ArrayTasksTest {
     @ParameterizedTest
     @MethodSource("generatedNumbersTestProvider")
     public void generateNumbersTests(int length, int[] expectedArr) {
-        assertArrayEquals(expectedArr, arrayTasks.generateNumbers(length),
+        assertArrayEquals(expectedArr, ArrayTasks.generateNumbers(length),
                 "I think, something went wrong with number generation implementation");
     }
 
@@ -83,7 +83,7 @@ public class ArrayTasksTest {
     @ParameterizedTest
     @MethodSource("getOnlyPositiveNumbersTestProvider")
     public void getOnlyPositiveNumbersTest(int[] arr, int[] expectedArr) {
-        assertArrayEquals(expectedArr, arrayTasks.getOnlyPositiveNumbers(arr));
+        assertArrayEquals(expectedArr, ArrayTasks.getOnlyPositiveNumbers(arr));
     }
 
     @ParameterizedTest
